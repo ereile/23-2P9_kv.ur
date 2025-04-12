@@ -12,7 +12,7 @@ if D > 0:
     print(f"Корни:{x1}, {x2}")
 
 elif D == 0:
-    pass
-
+    x = (-b) / 2*a
+    print(f"Корень: {x}")
 else:
     print("Нет корней")
