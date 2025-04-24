@@ -31,12 +31,14 @@ class TestsKvUr(unittest.TestCase):
         a = 0
         b = 0
         c = 4
-        string = "Нет решения"
+        answer = "Нет решения"
+        string = "Линейное уравнение параллельное оси Ох"
         output = kv_ur(a, b, c)
-        count = 1
+        count = 2
 
         self.assertEqual(len(output), count, "Некорректное число элементов")
         self.assertEqual(output[0], string, "Строка некорреткна")
+        self.assertEqual(output[1], answer, "Ответ некорректен")
 
     def test_discriminant_is_zero(self):
         """Тесты для дискриминанта равная нулю"""
