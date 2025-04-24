@@ -20,7 +20,6 @@ class TestsKvUr(unittest.TestCase):
         count = 4
         output = kv_ur(a, b, c)
 
-
         self.assertEqual(len(output), count,
                          "incorrect count of values (square equation)")
         self.assertEqual(output[0], string,
