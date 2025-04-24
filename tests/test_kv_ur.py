@@ -26,6 +26,18 @@ class TestsKvUr(unittest.TestCase):
         self.assertEqual(output[2], x1, "incorrect x1")
         self.assertEqual(output[3], x2, "incorrect x2")
 
+    def test_three_is_zero(self):
+        """Тест если c число, а остальные нули"""
+        a = 0
+        b = 0
+        c = 4
+        string = "Нет решения"
+        output = kv_ur(a, b, c)
+        count = 1
+
+        self.assertEqual(len(output), count, "Некорректное число элементов")
+        self.assertEqual(output[0], string, "Строка некорреткна")
+
     def test_discriminant_is_zero(self):
         """Тесты для дискриминанта равная нулю"""
         a = 3
