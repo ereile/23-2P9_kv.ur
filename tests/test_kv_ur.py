@@ -17,8 +17,10 @@ class TestsKvUr(unittest.TestCase):
         x1 = 1
         x2 = -3
         string = "Дискриминант больше нуля, два корня"
+        count = 4
         output = kv_ur(a, b, c)
 
+        self.assertEqual(len(output), count, "incorrect count of values")
         self.assertEqual(output[0], string, "incorrect string")
         self.assertEqual(output[1], d, "incorrect discriminant")
         self.assertEqual(output[2], x1, "incorrect x1")
