@@ -71,9 +71,11 @@ class TestsKvUr(unittest.TestCase):
         a = 0
         b = 0
         c = 0
-        string = "Существует при всех значениях x"
-        count = 1
+        linear_string = "Уравнение линейное"
+        string = "Всё множество значений Ох"
+        count = 2
         output = kv_ur(a, b, c)
 
         self.assertEqual(len(output), count, "incorrect count of values")
-        self.assertEqual(output[0], string, "incorrect string")
+        self.assertEqual(output[0], linear_string, "incorrect string")
+        self.assertEqual(output[1], string, "incorrect answer")
