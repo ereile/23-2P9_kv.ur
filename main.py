@@ -12,7 +12,7 @@ def kv_ur(a, b, c):
             return "Уравнение линейное, один корень", x
 
         else:
-            return None
+            return 'График параллельный'
 
     if d > 0:
         x1 = (-b + d**0.5) / (2 * a)
