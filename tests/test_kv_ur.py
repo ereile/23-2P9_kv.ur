@@ -25,3 +25,19 @@ class TestsKvUr(unittest.TestCase):
         self.assertEqual(output[1], d, "incorrect discriminant")
         self.assertEqual(output[2], x1, "incorrect x1")
         self.assertEqual(output[3], x2, "incorrect x2")
+
+    def test_discriminant_is_zero(self):
+        """Тесты для дискриминанта равная нулю"""
+        a = 3
+        b = -18
+        c = 27
+        d = 0
+        x = 3
+        string = "Дискриминант равен нулю, один корень"
+        z = 3
+        output = kv_ur(a, b, c)
+
+        self.assertEqual(len(output), z, "Некорректное число элементов")
+        self.assertEqual(output[0], string, "Строка некорректна")
+        self.assertEqual(output[1], d, "Дискриминант некорректен")
+        self.assertEqual(output[2], x, "Корень некорректен")
