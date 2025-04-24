@@ -64,3 +64,16 @@ class TestsKvUr(unittest.TestCase):
         self.assertEqual(output[0], string, "Строка некорректна")
         self.assertEqual(output[1], d, "Дискриминант некорректен")
         self.assertEqual(output[2], x, "Корень некорректен")
+
+    def test_all_zero(self):
+        """Test for coincidence with the Ox axis
+        """
+        a = 0
+        b = 0
+        c = 0
+        string = "Существует при всех значениях x"
+        count = 1
+        output = kv_ur(a, b, c)
+
+        self.assertEqual(len(output), count, "incorrect count of values")
+        self.assertEqual(output[0], string, "incorrect string")
