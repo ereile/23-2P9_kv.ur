@@ -13,8 +13,10 @@ class Tests(unittest.TestCase):
         d = 0
         x = 3
         string = "Дискриминант равен нулю, один корень"
+        z = 3
         output = kv_ur(a, b, c)
 
+        self.assertEqual(len(output), z, "Некорректное число элементов")
         self.assertEqual(output[0], string, "Строка некорректна")
         self.assertEqual(output[1], d, "Дискриминант некорректен")
         self.assertEqual(output[2], x, "Корень некорректен")
