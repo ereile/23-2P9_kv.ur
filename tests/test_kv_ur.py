@@ -20,8 +20,47 @@ class TestsKvUr(unittest.TestCase):
         count = 4
         output = kv_ur(a, b, c)
 
-        self.assertEqual(len(output), count, "incorrect count of values")
-        self.assertEqual(output[0], string, "incorrect string")
-        self.assertEqual(output[1], d, "incorrect discriminant")
-        self.assertEqual(output[2], x1, "incorrect x1")
-        self.assertEqual(output[3], x2, "incorrect x2")
+        self.assertEqual(len(output), count,
+                         "incorrect count of values (square equation)")
+        self.assertEqual(output[0], string,
+                         "incorrect string (square equation)")
+        self.assertEqual(output[1], d,
+                         "incorrect discriminant (square equation)")
+        self.assertEqual(output[2], x1,
+                         "incorrect x1 (square equation)")
+        self.assertEqual(output[3], x2,
+                         "incorrect x2 (square equation)")
+
+    def test_linear_equation(self):
+        """Test for linear equation
+        """
+        a = 0
+        b = 2
+        c = -4
+        x = 2
+        string = "Уравнение линейное, один корень"
+        count = 2
+        output = kv_ur(a, b, c)
+
+        self.assertEqual(len(output), count,
+                         "incorrect count of values (linear equation)")
+        self.assertEqual(output[0], string,
+                         "incorrect string (linear equation)")
+        self.assertEqual(output[1], x,
+                         "incorrect x (linear equation)")
+
+    def test_discriminant_is_zero(self):
+        """Тесты для дискриминанта равная нулю"""
+        a = 3
+        b = -18
+        c = 27
+        d = 0
+        x = 3
+        string = "Дискриминант равен нулю, один корень"
+        z = 3
+        output = kv_ur(a, b, c)
+
+        self.assertEqual(len(output), z, "Некорректное число элементов")
+        self.assertEqual(output[0], string, "Строка некорректна")
+        self.assertEqual(output[1], d, "Дискриминант некорректен")
+        self.assertEqual(output[2], x, "Корень некорректен")
