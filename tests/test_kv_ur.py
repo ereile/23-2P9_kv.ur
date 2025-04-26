@@ -53,7 +53,7 @@ class TestsKvUr(unittest.TestCase):
         b = 4
         c = 8
         d = -16
-        string = "Дискриминант меньше нуля, нет действительных корней"
+        string = "Дискриминант меньше нуля, нет корней"
         count = 2
         output = kv_ur(a, b, c)
 
