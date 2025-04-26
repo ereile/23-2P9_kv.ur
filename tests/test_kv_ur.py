@@ -1,12 +1,12 @@
-"""Module for all unittests
-"""
+"""Module for all unittests"""
+
 import unittest
 from main import kv_ur
 
 
 class TestsKvUr(unittest.TestCase):
-    """Class for unittests
-    """
+    """Class for unittests"""
+
     def test_more_zero(self):
         """Дискрименант больше нуля"""
         a = 2
@@ -32,6 +32,7 @@ class TestsKvUr(unittest.TestCase):
 
     def test_discriminant_is_zero(self):
         """Дискрименант равен нулю"""
+
         a = 3
         b = -18
         c = 27
@@ -48,6 +49,7 @@ class TestsKvUr(unittest.TestCase):
     
     def test_linear_equation(self):
         """Прямая пересекает ось"""
+
         a = 0
         b = 2
         c = -4
@@ -65,6 +67,7 @@ class TestsKvUr(unittest.TestCase):
 
     def test_three_is_zero(self):
         """Прямая параллельна оси"""
+
         a = 0
         b = 0
         c = 4
@@ -79,6 +82,7 @@ class TestsKvUr(unittest.TestCase):
 
     def test_all_zero(self):
         """Прямая совпадает с осью"""
+
         a = 0
         b = 0
         c = 0
