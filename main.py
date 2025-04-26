@@ -3,6 +3,8 @@
 
 def kv_ur(a, b, c):
     """Решение квадратного уравнения"""
+    if a == 0 and b == 0 and c == 0:
+        return "функция линейная", "Функция совпадает с осю Ox"
     d = b**2 - 4 * a * c
 
     if d > 0:
@@ -19,17 +21,9 @@ def kv_ur(a, b, c):
     return "Дискриминант меньше нуля, нет корней", d
 
 
-def at_zero():
-    """Вывод сообщений при переменных равных 0"""
-    return "функция линейная", "Функция совпадает с осю Ox"
-
-
 if __name__ == "__main__":
     a_in = float(input("Введите коэффициент а:"))
     b_in = float(input("Введите коэффициент b:"))
     c_in = float(input("Введите коэффициент c:"))
 
-    if a_in == 0 and b_in == 0 and c_in == 0:
-        print(at_zero())
-    else:
-        print(kv_ur(a_in, b_in, c_in))
+    print(kv_ur(a_in, b_in, c_in))
