@@ -36,10 +36,11 @@ class App:
             a = int(self.input_a.get())
             b = int(self.input_b.get())
             c = int(self.input_c.get())
-            self.label.config(text=str(kv_ur(a, b ,c)))
+            self.label.config(text=str(kv_ur(a, b, c)))
 
         except ValueError:
             pass
+
 
 root = tk.Tk()
 app = App(root)
