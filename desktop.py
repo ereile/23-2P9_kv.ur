@@ -29,6 +29,9 @@ class App:
         self.button.pack()
         self.label.pack()
 
+    def f(self):
+        print(self)
+
     def solution(self):
         """_summary_"""
 
