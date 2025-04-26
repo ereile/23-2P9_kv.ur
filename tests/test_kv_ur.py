@@ -46,7 +46,21 @@ class TestsKvUr(unittest.TestCase):
         self.assertEqual(output[0], string, "Строка некорректна")
         self.assertEqual(output[1], d, "Дискриминант некорректен")
         self.assertEqual(output[2], x, "Корень некорректен")
-    
+
+    def test_less_zero(self):
+        """Дискриминант меньше нуля"""
+        a = 1
+        b = 4
+        c = 8
+        d = -16
+        string = "Дискриминант меньше нуля, нет действительных корней"
+        count = 2
+        output = kv_ur(a, b, c)
+
+        self.assertEqual(len(output), count, "неверный подсчет значений")
+        self.assertEqual(output[0], string, "неверная строка")
+        self.assertEqual(output[1], d, "неправильный дискриминант")
+
     def test_linear_equation(self):
         """Прямая пересекает ось"""
 
