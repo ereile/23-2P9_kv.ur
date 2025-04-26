@@ -46,7 +46,7 @@ class TestsKvUr(unittest.TestCase):
         self.assertEqual(output[0], string, "Строка некорректна")
         self.assertEqual(output[1], d, "Дискриминант некорректен")
         self.assertEqual(output[2], x, "Корень некорректен")
-    
+
     def test_linear_equation(self):
         """Прямая пересекает ось"""
 
