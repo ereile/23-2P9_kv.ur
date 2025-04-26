@@ -5,8 +5,7 @@ from main import kv_ur
 
 
 class App:
-    """_summary_
-    """
+    """APP"""
     def __init__(self, master: tk.Tk) -> None:
         self.master = master
         self.master.title('Решение квадратного уравнения')
