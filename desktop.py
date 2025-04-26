@@ -30,6 +30,7 @@ class App:
         self.label.pack()
 
     def f(self):
+        """Просто функция"""
         print(self)
 
     def solution(self):
