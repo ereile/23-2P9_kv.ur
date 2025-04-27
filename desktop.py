@@ -4,47 +4,69 @@ import tkinter as tk
 from main import kv_ur
 
 
-class App:
+class App(tk.Tk):
     """APP"""
-    def __init__(self, master: tk.Tk) -> None:
-        self.master = master
-        self.master.title('Решение квадратного уравнения')
-        self.master.geometry('500x250')
+    def __init__(self):
+        super().__init__()
+        self.title('Решение квадратного уравнения')
+        self.geometry('500x250')
 
-        self.input_a = tk.Entry(self.master)
-        self.input_b = tk.Entry(self.master)
-        self.input_c = tk.Entry(self.master)
-        self.label = tk.Label(self.master, text='')
-
-        self.input_a.pack()
-        self.input_b.pack()
-        self.input_c.pack()
-
+        self.input_a = tk.Entry(self)
+        self.input_b = tk.Entry(self)
+        self.input_c = tk.Entry(self)
+        self.solution_label = tk.Label(self.master, text='')
+        self.callback_a_label = tk.Label(self)
+        self.callback_b_label = tk.Label(self)
+        self.callback_c_label = tk.Label(self)
         self.button = tk.Button(self.master,
                                 text='Вычислить',
                                 command=self.solution
                                 )
+        self.inputs = [
+            (self.input_a, self.callback_a_label),
+            (self.input_b, self.callback_b_label),
+            (self.input_c, self.callback_c_label)
+            ]
 
+        self.callback_a_label.pack()
+        self.input_a.pack()
+        self.callback_b_label.pack()
+        self.input_b.pack()
+        self.callback_c_label.pack()
+        self.input_c.pack()
         self.button.pack()
-        self.label.pack()
+        self.solution_label.pack()
 
-    def f(self):
-        """Просто пустая функция"""
-        print(self)
+    def input_callback(self, label: tk.Label):
+        """Except callback"""
+        label.config(text="""↓ Некорректное значение""")
 
     def solution(self):
-        """_summary_"""
+        """solution"""
 
-        try:
-            a = int(self.input_a.get())
-            b = int(self.input_b.get())
-            c = int(self.input_c.get())
-            self.label.config(text=str(kv_ur(a, b, c)))
+        params = []
+        flag = True
+        for [input_el, label] in self.inputs:
+            try:
+                params.append(int(input_el.get()))
 
-        except ValueError:
-            pass
+            except ValueError:
+                self.input_callback(label)
+                flag = False
+                break
+
+        if flag:
+            for lst in self.inputs:
+                lst[1].config(text='')
+
+            self.solution_label.config(text=str(
+                                       kv_ur(
+                                        params[0],
+                                        params[1],
+                                        params[2]
+                                        )))
 
 
-root = tk.Tk()
-app = App(root)
-root.mainloop()
+if __name__ == '__main__':
+    app = App()
+    app.mainloop()
