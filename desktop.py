@@ -46,11 +46,11 @@ class App(tk.Tk):
         """solution"""
 
         self.set_label('')
-        p = []
+        params = []
         flag = True
         for (input_el, label) in self.inputs:
             try:
-                p.append(int(input_el.get()))
+                params.append(int(input_el.get()))
 
             except ValueError:
                 self.input_callback(label)
@@ -60,10 +60,11 @@ class App(tk.Tk):
         if flag:
             self.set_label('')
 
-            self.solution_label.config(text=str(get(
-                            f"{URL}{PATH}?a={p[0]}&b={p[1]}&c={p[2]}",
-                            timeout=1000
-                            ).json()))
+            self.solution_label.config(
+                text=str(get(
+                    f"{URL}{PATH}?a={params[0]}&b={params[1]}&c={params[2]}",
+                    timeout=1000
+                    ).json()))
 
 
 if __name__ == '__main__':
