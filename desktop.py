@@ -4,7 +4,7 @@ import tkinter as tk
 from typing import List, Tuple
 from requests import get
 
-URL = '/kvur'
+URL = '/kvur/'
 
 
 class App(tk.Tk):
