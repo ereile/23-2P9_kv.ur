@@ -2,7 +2,10 @@
 
 import tkinter as tk
 from typing import List, Tuple
-from main import kv_ur
+from requests import get
+
+PATH = '/kvur/'
+URL = 'http://127.0.0.1:8000'
 
 
 class App(tk.Tk):
@@ -57,12 +60,11 @@ class App(tk.Tk):
         if flag:
             self.set_label('')
 
-            self.solution_label.config(text=str(
-                                       kv_ur(
-                                        params[0],
-                                        params[1],
-                                        params[2]
-                                        )))
+            self.solution_label.config(
+                text=str(get(
+                    f"{URL}{PATH}?a={params[0]}&b={params[1]}&c={params[2]}",
+                    timeout=1000
+                    ).json()))
 
 
 if __name__ == '__main__':
