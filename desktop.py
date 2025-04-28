@@ -4,7 +4,8 @@ import tkinter as tk
 from typing import List, Tuple
 from requests import get
 
-URL = '/kvur/'
+PATH = '/kvur/'
+URL = 'http://127.0.0.1:8000'
 
 
 class App(tk.Tk):
@@ -45,11 +46,11 @@ class App(tk.Tk):
         """solution"""
 
         self.set_label('')
-        params = []
+        p = []
         flag = True
         for (input_el, label) in self.inputs:
             try:
-                params.append(int(input_el.get()))
+                p.append(int(input_el.get()))
 
             except ValueError:
                 self.input_callback(label)
@@ -59,10 +60,9 @@ class App(tk.Tk):
         if flag:
             self.set_label('')
 
-            self.solution_label.config(text=str(get(URL, [
-                                        params[0],
-                                        params[1],
-                                        params[2]])))
+            self.solution_label.config(text=str(get(
+                            f"{URL}{PATH}?a={p[0]}&b={p[1]}&c={p[2]}"
+                            ).json()))
 
 
 if __name__ == '__main__':
