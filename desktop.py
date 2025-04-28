@@ -2,7 +2,10 @@
 
 import tkinter as tk
 from typing import List, Tuple
-from main import kv_ur
+from requests import get
+
+
+URL = '/kvur'
 
 
 class App(tk.Tk):
@@ -57,12 +60,10 @@ class App(tk.Tk):
         if flag:
             self.set_label('')
 
-            self.solution_label.config(text=str(
-                                       kv_ur(
+            self.solution_label.config(text=str(get(URL, [
                                         params[0],
                                         params[1],
-                                        params[2]
-                                        )))
+                                        params[2]])))
 
 
 if __name__ == '__main__':
