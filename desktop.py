@@ -61,7 +61,8 @@ class App(tk.Tk):
             self.set_label('')
 
             self.solution_label.config(text=str(get(
-                            f"{URL}{PATH}?a={p[0]}&b={p[1]}&c={p[2]}"
+                            f"{URL}{PATH}?a={p[0]}&b={p[1]}&c={p[2]}",
+                            timeout=1000
                             ).json()))
 
 
