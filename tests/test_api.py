@@ -16,16 +16,25 @@ class TestsKvUrAPI(unittest.TestCase):
     def test_api_three_is_zero(self):
         """Прямая параллельна оси"""
 
-        a_in = 0
-        b_in = 0
-        c_in = 4
-        answer = "Нет решения"
-        string = "Линейное уравнение параллельное оси Ох"
+        a = 2
+        b = 4
+        c = -6
+        d = 64
+        x1 = 1
+        x2 = -3
+        string = "Дискриминант больше нуля, два корня"
         output = client.get(
             f"http://{HOST}{URL}?a={a_in}&b={b_in}&c={c_in}"
             ).json()
-        count = 2
+        count = 4
 
-        self.assertEqual(len(output), count, "Некорректное число элементов")
-        self.assertEqual(output[0], string, "Строка некорреткна")
-        self.assertEqual(output[1], answer, "Ответ некорректен")
+        self.assertEqual(len(output), count,
+                         "incorrect count of values (square equation)")
+        self.assertEqual(output[0], string,
+                         "incorrect string (square equation)")
+        self.assertEqual(output[1], d,
+                         "incorrect discriminant (square equation)")
+        self.assertEqual(output[2], x1,
+                         "incorrect x1 (square equation)")
+        self.assertEqual(output[3], x2,
+                         "incorrect x2 (square equation)")
