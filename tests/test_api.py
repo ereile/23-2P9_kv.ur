@@ -22,8 +22,7 @@ class TestsKvUrAPI(unittest.TestCase):
         answer = "Нет решения"
         string = "Линейное уравнение параллельное оси Ох"
         output = client.get(
-            f"http://{HOST}{URL}?a={a_in}&b={b_in}&c={c_in}",
-            timeout=1000
+            f"http://{HOST}{URL}?a={a_in}&b={b_in}&c={c_in}"
             ).json()
         count = 2
 
