@@ -2,9 +2,13 @@
 
 import unittest
 import requests
+from fastapi import testclient
+from api import app
 
 HOST = 'localhost:8000'
 URL = "/kvur/"
+
+client = testclient.TestClient(app=app)
 
 
 class TestsKvUrAPI(unittest.TestCase):
@@ -18,7 +22,7 @@ class TestsKvUrAPI(unittest.TestCase):
         c_in = 4
         answer = "Нет решения"
         string = "Линейное уравнение параллельное оси Ох"
-        output = requests.get(
+        output = client.get(
             f"http://{HOST}{URL}?a={a_in}&b={b_in}&c={c_in}",
             timeout=1000
             ).json()
