@@ -18,7 +18,9 @@ class TestsKvUrAPI(unittest.TestCase):
             c = 4
             answer = "Нет решения"
             string = "Линейное уравнение параллельное оси Ох"
-            output = requests.get(f"http://{HOST}{URL}?a={a}&b={b}&c={c}").json()
+            output = requests.get(
+                f"http://{HOST}{URL}?a={a}&b={b}&c={c}"
+                ).json()
             count = 2
 
             self.assertEqual(len(output), count, "Некорректное число элементов")
