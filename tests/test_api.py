@@ -1,7 +1,6 @@
 """Module for all unittests api"""
 
 import unittest
-import requests
 from fastapi import testclient
 from api import app
 
